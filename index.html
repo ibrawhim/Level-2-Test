@@ -7,6 +7,22 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div>
+        <input type="text" placeholder="Add Items" id="add"> 
+        <input type="number" placeholder="Quantity" id="qty">
+        <button onclick="addItems()">Add Items To Cart</button>
+    </div>
+
+
+    <script>
+        customerItems = []
+        let date = new Date()
+     let eachItems = {
+        nameOfItems: add.value,
+        Quantity: qty.value,
+        time: date.toLocaleTimeString()
+     }
+      customerItems.push(nameOfItems)
+    </script>
 </body>
 </html>
