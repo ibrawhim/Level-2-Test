@@ -25,7 +25,10 @@
         }
       
       const addItems = () => {
-     let date = new Date()
+        if(add.value=="" || qty.value==""){
+            disp.innerHTML = "Fill all spaces"
+        } else {
+            let date = new Date()
      let eachItems = {
         nameOfItems: add.value,
         quantity: qty.value,
@@ -36,6 +39,8 @@
       localStorage.setItem("allUsers",JSON.stringify(customerItems))
       displayItems()
 
+        }
+    
       }
 
       const displayItems = () => {
