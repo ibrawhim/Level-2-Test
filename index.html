@@ -11,8 +11,10 @@
     <div class="w-50 mx-auto">
         <input type="text" class="form-control pt-2 mt-2" placeholder="Add Items" id="add"> 
         <input type="number" class="form-control pt-2 mt-2" placeholder="Quantity" id="qty">
+        <div id="disp" class="border rounded-3 w-100 pt-5 mt-2"></div>
         <button class="btn btn-dark w-100 pt-2 mt-2" onclick="addItems()">Add Items To Cart</button>
-        <table id="display"></table>
+        <table class="table mt-5" id="display">
+        </table>
     </div>
 
 
@@ -39,15 +41,26 @@
       const displayItems = () => {
         add.value = ""
         qty.value = ""
+        if(add.value=""){
+                disp.innerHTML = "input item"
+            }
         for (let index = 0; index < customerItems.length; index++) {
-            display.innerHTML = `
-                ${index+1}.
-                ${customerItems[index].time}
-                ${customerItems[index].nameOfItems}
-                ${customerItems[index].quantity}
+            display.innerHTML += `
+                <tr class="border">
+                <td class="border border-dark">${index+1}.</td>
+                <td class="border border-dark">${customerItems[index].time}</td>
+                <td class="border border-dark">${customerItems[index].nameOfItems}</td>
+                <td class="border border-dark">${customerItems[index].quantity}</td>
+                <td class="border border-dark"><button onclick="deleteItem(${index})" class="ms-5 btn btn-dark">delete</button></td>
+            </tr>
             `
          }
       }
+    function deleteItem(userIndex) {
+    customerItems.splice(userIndex,1)
+    displayItems()
+    localStorage.setItem("allUsers",JSON.stringify(customerItems))
+    } 
     </script>
 </body>
 </html>
