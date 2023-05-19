@@ -26,7 +26,8 @@
       
       const addItems = () => {
         if(add.value=="" || qty.value==""){
-            disp.innerHTML = "Fill all spaces"
+            disp.innerHTML = "Fill all spaces!!!"
+            disp.style.color = "red"
         } else {
             let date = new Date()
      let eachItems = {
@@ -38,9 +39,8 @@
       console.log(customerItems);
       localStorage.setItem("allUsers",JSON.stringify(customerItems))
       displayItems()
-
+ 
         }
-    
       }
 
       const displayItems = () => {
